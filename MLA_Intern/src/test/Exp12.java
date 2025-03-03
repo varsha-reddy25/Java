@@ -104,10 +104,12 @@ public static void main(String[] args) {
 	.filter(emp -> emp.getYear()>(2020)).
 	forEach(dt -> System.out.println(dt));
 	System.out.println("distinct rows");
-	emplist.stream()
+	/*emplist.stream()
 	.filter(emp -> emp.getName().startsWith("R")).distinct().
-	forEach(dt -> System.out.println(dt));
-
+	forEach(dt -> System.out.println(dt));*/
+	List<String> name=emplist.stream().filter(emp->emp.getName().length()>=5).map(emp->emp.getName()).toList();
+name.stream().distinct().forEach(emp->System.out.println(emp));
+System.out.println(emplist.stream().filter(emp->emp.getName().length()>=5).count());
 }
 }
 
